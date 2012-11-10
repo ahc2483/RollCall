@@ -12,4 +12,18 @@ class Student < ActiveRecord::Base
       self.uid = SecureRandom.hex(16)
     end while Student.find_by_uid(self.uid).present?
   end
+    
+   def getName
+        Student.first_name 
+        Student.last_name
+    end
+    
+    def getEmail
+        Student.email
+    end
+    
+    def getCredit
+        Student.extra_credit_balance
+    end
+    
 end
