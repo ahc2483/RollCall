@@ -5,6 +5,9 @@ class LoginController < ApplicationController
     
     Rails.logger.info(@user_access_token)
     
+    @client = FBGraph::Client.new(:client_id => Settings.facebook_app_id,:secret_id =>Settings.facebook_app_secret ,:token => @user_access_token)
+    
+    @client.
     
     #parse for Facebook token
     
