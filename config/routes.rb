@@ -1,4 +1,19 @@
 RollCall::Application.routes.draw do
+  
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => "home#index"
+  
+  get "student/index"
+  
+  match "student" => 'student#index'
+  
+  post "student/checkin"
+
+  match "login" => "login#handle"
+  
+  get "login/cancel"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
