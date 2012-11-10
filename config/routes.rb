@@ -8,7 +8,7 @@ RollCall::Application.routes.draw do
   
   get "student/index"
   
-  match "student" => 'student#index'
+  match '/student/:uid'   => 'student#index', :via => :get
   
   post "student/checkin"
 

@@ -38,4 +38,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 #FB Graph API Gem
-gem "fbgraph"
+gem "koala"
+
+#config gem
+gem "rails_config"
