@@ -1,0 +1,7 @@
+# Settings File
+
+facebook_app_id: '261371317318046'
+
+facebook_app_secret: '327a32a0a234c2d56d90a9d3602bb6d6'
+
+facebook_redired_url: 'http://localhost:3000/login'
