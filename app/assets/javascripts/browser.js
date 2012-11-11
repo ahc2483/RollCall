@@ -35,8 +35,7 @@ Browser.getCurrentLocation = function(/* Function */ successCalback){
 	                                               options);
 	   }else{
 	      alert("Sorry, browser does not support geolocation!");
+	      successCallback(null);
 	   }
 	}
-	
-	return location;
 }
