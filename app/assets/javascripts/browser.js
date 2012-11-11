@@ -2,15 +2,41 @@
 
 var Browser = {};
 
-Browser.getCurrentLocation = function(){
+/**
+ *  Gets the current location and calls the callback when complete
+ * 
+ *  @param successCallback {Function} The function to call when obtaining location is complete
+ */
+Browser.getCurrentLocation = function(/* Function */ successCalback){
 	
-	var location = {};
+	function exportLocation(position) {
+	  var location = {};
+	  location.latitude = position.coords.latitude;
+	  location.longitude = position.coords.longitude;
+	  successCalback(location);
+	}
+
+	function errorHandler(err) {
+	  if(err.code == 1) {
+	    alert("Error: Access is denied!");
+	  }else if( err.code == 2) {
+	    alert("Error: Position is unavailable!");
+	  }
+	  
+	  successCalback(null);
+	}
 	
-	//TODO: Implement logic to find location
-	
-	//location.latitude = the latitude found
-	
-	//location.longitude = the longitude found
+	function getLocation(){
+	   if(navigator.geolocation){
+	      // timeout at 60000 milliseconds (60 seconds)
+	      var options = {timeout:60000};
+	      navigator.geolocation.getCurrentPosition(exportLocation, 
+	                                               errorHandler,
+	                                               options);
+	   }else{
+	      alert("Sorry, browser does not support geolocation!");
+	   }
+	}
 	
 	return location;
 }
