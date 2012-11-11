@@ -17,13 +17,13 @@ class LoginController < ApplicationController
   
       profile = @graph.get_object("me")
       
-      @student = Student.find_by_fb_user_id(profile["id"])
+      @student = Student.where("fb_user_id = :fb_user_id", { :fb_user_id => profile["id"] }).first
       
       @student.fb_access_token = @user_access_token
       
       @student.save!
       
-      redirect_to "/student/#{@student.uid}"
+      redirect_to "/student/#{@student.id}"
     
     end
     

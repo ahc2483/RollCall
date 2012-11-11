@@ -1,6 +1,8 @@
 class StudentController < ApplicationController
   def index
-    @student = Student.find_by_uid(params[:uid])
+    @student = Student.find(params[:uid])
+    
+    Rails.logger.info(@student.id)
   end
 
   def checkin
