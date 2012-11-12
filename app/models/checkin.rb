@@ -4,7 +4,7 @@ class Checkin < ActiveRecord::Base
     has_one :student
     validates :latitude, :longitude, :presence => true
     
-    def self.post!
+    def post
          
       if(self.student.post_to_facebook)
         
@@ -12,5 +12,6 @@ class Checkin < ActiveRecord::Base
         
         @graph.put_connections("me", "rollcallapp:check_in_to", :class => "http://rollcallapp.herokuapp.com/course_object.html")
       end
+      
     end
 end
