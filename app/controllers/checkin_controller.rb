@@ -12,6 +12,8 @@ class CheckinController < ApplicationController
     
     Rails.logger.info("New Checkin ID: #{@checkin.id}")
     
+    @checkin.post()
+    
     if(@student.post_to_facebook)
       
       @graph = Koala::Facebook::API.new(@student.fb_access_token)
