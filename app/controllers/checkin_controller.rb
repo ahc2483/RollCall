@@ -12,7 +12,7 @@ class CheckinController < ApplicationController
     
     Rails.logger.info("New Checkin ID: #{@checkin.id}")
     
-    @checkin.post()
+    @checkin.post!
     
   end
 end

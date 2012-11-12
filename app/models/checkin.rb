@@ -4,7 +4,7 @@ class Checkin < ActiveRecord::Base
     has_one :student
     validates :latitude, :longitude, :presence => true
     
-    def Checkin.Post
+    def self.post!
          
       if(self.student.post_to_facebook)
         
