@@ -14,12 +14,5 @@ class CheckinController < ApplicationController
     
     @checkin.post()
     
-    if(@student.post_to_facebook)
-      
-      @graph = Koala::Facebook::API.new(@student.fb_access_token)
-      
-      @graph.put_connections("me", "rollcallapp:check_in_to", :class => "http://andrewchurch.com/synergy/course_object.html")
-    end
-    
   end
 end
