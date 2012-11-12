@@ -1,2 +1,7 @@
 <h1>Welcome to Roll Call, <%=@student.first_name%></h1>
 
+<input type="hidden" id="student_id" value="<%=@student.id%>" />
+
+<% for course in @student.courses %>
+  <h3> <%=course.title %></h3> <button onclick="window.StudentApp.checkInToClass(<%=course.id %>)">Check In</button>
+<% end %>

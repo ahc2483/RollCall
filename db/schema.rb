@@ -11,11 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110213649) do
+ActiveRecord::Schema.define(:version => 20121112020731) do
 
   create_table "checkins", :force => true do |t|
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.integer  "student_id"
+    t.integer  "course_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "courses_students", :id => false, :force => true do |t|
+    t.integer "course_id"
+    t.integer "student_id"
   end
 
   create_table "students", :force => true do |t|

@@ -1,17 +1,10 @@
 class Checkin < ActiveRecord::Base
-    attr_accessible :Student, :Course, :Location
-    belongs_to :Course :include => Location
-    has_one :Student
-    
-    def new
-        
-    end
+    attr_accessible :latitude, :longitude
+    belongs_to :course
+    has_one :student
+    validates :latitude, :longitude, :presence => true
     
     def Checkin.Post
         
-    end
-    
-    def saveRecord
-    
     end
 end

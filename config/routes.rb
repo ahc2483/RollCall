@@ -1,6 +1,6 @@
 RollCall::Application.routes.draw do
   
-  get "checkin/post"
+  post "checkin/post"
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
@@ -10,7 +10,7 @@ RollCall::Application.routes.draw do
   
   match '/student/:uid'   => 'student#index', :via => :get
   
-  post "student/checkin"
+  match 'checkin/post' => 'checkin#post'
 
   match "login" => "login#handle"
   

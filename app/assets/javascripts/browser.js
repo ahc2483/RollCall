@@ -1,13 +1,13 @@
 
 
-var Browser = {};
+window.Browser = {};
 
 /**
  *  Gets the current location and calls the callback when complete
  * 
  *  @param successCallback {Function} The function to call when obtaining location is complete
  */
-Browser.getCurrentLocation = function(/* Function */ successCalback){
+window.Browser.getCurrentLocation = function(/* Function */ successCalback){
 	
 	function exportLocation(position) {
 	  var location = {};
@@ -26,16 +26,14 @@ Browser.getCurrentLocation = function(/* Function */ successCalback){
 	  successCalback(null);
 	}
 	
-	function getLocation(){
-	   if(navigator.geolocation){
-	      // timeout at 60000 milliseconds (60 seconds)
-	      var options = {timeout:60000};
-	      navigator.geolocation.getCurrentPosition(exportLocation, 
-	                                               errorHandler,
-	                                               options);
-	   }else{
-	      alert("Sorry, browser does not support geolocation!");
-	      successCallback(null);
-	   }
-	}
+	if(navigator.geolocation){
+      // timeout at 60000 milliseconds (60 seconds)
+      var options = {timeout:60000};
+      navigator.geolocation.getCurrentPosition(exportLocation, 
+                                               errorHandler,
+                                               options);
+   }else{
+      alert("Sorry, browser does not support geolocation!");
+      successCallback(null);
+   }
 }
