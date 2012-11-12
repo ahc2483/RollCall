@@ -21,6 +21,8 @@ Browser.getCurrentLocation = function(/* Function */ successCalback){
 	    alert("Error: Access is denied!");
 	  }else if( err.code == 2) {
 	    alert("Error: Position is unavailable!");
+	  }else if (err.code == 3){
+	  	alert("Error: Not close enough to check in");
 	  }
 	  
 	  successCalback(null);
